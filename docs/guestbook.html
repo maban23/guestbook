@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guestbook</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #eef3f9;
+        color: #1f2937;
+        font-family: Arial, sans-serif;
+        padding: 40px 20px;
+      }
+
+      .browser {
+        width: min(900px, 92vw);
+        margin: 0 auto;
+        background: #f5f5f5;
+        border: 1px solid #dfe5ec;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+      }
+
+      .browser-bar {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: #ececec;
+        border-bottom: 1px solid #dde3ea;
+      }
+
+      .window-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+
+      .window-dot.red { background: #ff5f57; }
+      .window-dot.yellow { background: #ffbd2e; }
+      .window-dot.green { background: #28c840; }
+
+      .address-bar {
+        flex: 1;
+        background: #ffffff;
+        border: 1px solid #d8dfe7;
+        border-radius: 999px;
+        padding: 10px 14px;
+        font-size: 0.95rem;
+        color: #465365;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .content {
+        background: #ffffff;
+        padding: 28px;
+      }
+
+      h1 {
+        margin: 0 0 18px;
+        font-size: 2rem;
+      }
+
+      .form-row {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      input {
+        flex: 1;
+        padding: 10px 12px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+
+      .add-btn,
+      .delete-btn {
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .add-btn {
+        background: #2563eb;
+        color: #fff;
+        padding: 10px 16px;
+      }
+
+      .add-btn:hover {
+        background: #1d4ed8;
+      }
+
+      .guestbook-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .guestbook-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 0;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .guestbook-item:last-child {
+        border-bottom: none;
+      }
+
+      .delete-btn {
+        background: #ef4444;
+        color: #fff;
+        padding: 6px 12px;
+        font-size: 0.85rem;
+      }
+
+      .delete-btn:hover {
+        background: #dc2626;
+      }
+
+      .count {
+        margin-top: 18px;
+        font-weight: 700;
+        color: #374151;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="browser">
+      <div class="browser-bar" aria-label="브라우저 주소창">
+        <span class="window-dot red"></span>
+        <span class="window-dot yellow"></span>
+        <span class="window-dot green"></span>
+        <div class="address-bar">https://github.com/maban23/guestbook</div>
+      </div>
+
+      <div class="content">
+        <h1>Guestbook</h1>
+
+        <div class="form-row">
+          <input id="text" type="text" value="student01: 안녕하세요" aria-label="방명록 입력" />
+          <button id="add" class="add-btn" type="button">추가</button>
+        </div>
+
+        <ul id="list" class="guestbook-list"></ul>
+        <div id="count" class="count">0개</div>
+      </div>
+    </div>
+
+    <script src="guestbook.js"></script>
+  </body>
+</html>
